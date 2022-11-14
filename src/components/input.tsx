@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useRef, useState } from 'react';
 
 type Props = {
   onSubmit: (message: string) => void;
@@ -27,12 +27,15 @@ export const Input = memo<Props>(({ onSubmit }) => {
     [value],
   );
 
+  const textareaRef = useRef<any>();
+
   const handleSubmitClick = useCallback(() => {
     const message = trim(value);
 
     if (message) {
       onSubmit(message);
       setValue('');
+      textareaRef.current?.focus();
     }
   }, [value]);
 
@@ -46,6 +49,7 @@ export const Input = memo<Props>(({ onSubmit }) => {
         autoFocus
         className="block w-full outline-none p-4 pr-12 resize-none"
         rows={1}
+        ref={textareaRef}
       />
       {value ? (
         <div

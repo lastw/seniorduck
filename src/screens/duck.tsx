@@ -30,7 +30,7 @@ export const DuckScreen = () => {
             <Message text={text} type={type} key={`${text}-${index}`} />
           ))
         ) : (
-          <p>Сформулируйте проблему</p>
+          <p>Сформулируйте проблему максимально подробно и точно</p>
         )}
       </div>
       <div className="border-t-2">
