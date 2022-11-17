@@ -47,7 +47,7 @@ export const DuckScreen = () => {
 
   return (
     <div className="grow flex flex-col">
-      <div className="grow overflow-auto flex flex-col justify-end p-4 pb-2 gap-4">
+      <div className="grow overflow-auto flex flex-col justify-end p-4 gap-4">
         <p className="px-3 py-2 bg-gray-100 rounded-xl text-sm self-center">
           Мы подобрали вам специалиста. Его зовут <b>Егор</b>. Сформулируйте проблему максимально
           подробно и точно. Не переживайте, всё строго конфиденциально.
@@ -57,9 +57,7 @@ export const DuckScreen = () => {
           <Message text={text} type={type} key={`${text}-${index}`} />
         ))}
       </div>
-      <div className="text-xs text-gray-400 px-4 pb-2">
-        {isTyping ? 'Егор набирает сообщение…' : '\u00A0'}
-      </div>
+      {isTyping && <div className="text-xs text-gray-400 px-4 pb-2">Егор набирает сообщение…</div>}
       <div className="border-t-2">
         <Input onSubmit={handleSubmit} />
       </div>
