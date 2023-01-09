@@ -65,10 +65,8 @@ export const DuckScreen = () => {
   );
 };
 
-const getSeniorMessage = () => {
-  if (Math.random() >= 0.5) {
-    return 'индид';
-  }
+const messages = ['индид', 'какую проблему решаем?', 'добро'];
 
-  return 'какую проблему решаем?';
+const getSeniorMessage = () => {
+  return messages[Math.floor(Math.random() * messages.length)];
 };
